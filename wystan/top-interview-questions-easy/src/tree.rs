@@ -31,6 +31,41 @@ pub fn max_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
     }
 }
 
+pub fn is_valid_bst(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
+    is_valid_bst_with_range(root).0
+}
+
+fn is_valid_bst_with_range(root: Option<Rc<RefCell<TreeNode>>>) -> (bool, i32, i32) {
+    match root {
+        None => (true, i32::MAX, i32::MIN),
+        Some(node) => {
+            let node_ref = node.borrow();
+            let (left_is_bst, left_min, left_max) = is_valid_bst_with_range(node_ref.left.clone());
+            let (right_is_bst, right_min, right_max) =
+                is_valid_bst_with_range(node_ref.right.clone());
+
+            let is_bst = left_is_bst
+                && right_is_bst
+                && (node_ref.left.is_none() || left_max < node_ref.val)
+                && (node_ref.right.is_none() || right_min > node_ref.val);
+
+            // Compute min and max values of the subtree
+            let min_val = if node_ref.left.is_some() {
+                left_min
+            } else {
+                node_ref.val
+            };
+            let max_val = if node_ref.right.is_some() {
+                right_max
+            } else {
+                node_ref.val
+            };
+
+            (is_bst, min_val, max_val)
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
