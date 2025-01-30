@@ -66,6 +66,25 @@ fn is_valid_bst_with_range(root: Option<Rc<RefCell<TreeNode>>>) -> (bool, i32, i
     }
 }
 
+pub fn is_symmetric(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
+    return root == rotate(root.clone());
+}
+
+pub fn rotate(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
+    match root {
+        None => return None,
+        Some(node) => {
+            let node_ptr = node.borrow();
+            let rotated = TreeNode {
+                val: node_ptr.val,
+                left: rotate(node_ptr.right.clone()),
+                right: rotate(node_ptr.left.clone()),
+            };
+            return Some(Rc::new(RefCell::new(rotated)));
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
