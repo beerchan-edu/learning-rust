@@ -117,6 +117,31 @@ pub fn level_order_for_list(nodes: Vec<Option<Rc<RefCell<TreeNode>>>>) -> Vec<Ve
     return result;
 }
 
+pub fn sorted_array_to_bst(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
+    match nums.as_slice() {
+        [] => None,
+        [a] => Some(Rc::new(RefCell::new(TreeNode::new(*a)))),
+        [a, b] => Some(Rc::new(RefCell::new(TreeNode {
+            val: *a,
+            left: None,
+            right: Some(Rc::new(RefCell::new(TreeNode::new(*b)))),
+        }))),
+        [a, b, c] => Some(Rc::new(RefCell::new(TreeNode {
+            val: *b,
+            left: Some(Rc::new(RefCell::new(TreeNode::new(*a)))),
+            right: Some(Rc::new(RefCell::new(TreeNode::new(*c)))),
+        }))),
+        _ => {
+            let mid_index = nums.len().checked_div(2).expect("division failes");
+            return Some(Rc::new(RefCell::new(TreeNode {
+                val: nums.get(mid_index).copied().unwrap_or(0),
+                left: sorted_array_to_bst(nums[..mid_index].to_vec()),
+                right: sorted_array_to_bst(nums[mid_index + 1..].to_vec()),
+            })));
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
