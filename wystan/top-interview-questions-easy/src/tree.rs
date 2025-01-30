@@ -84,6 +84,38 @@ pub fn rotate(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode
         }
     }
 }
+pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
+    level_order_for_list(vec![root])
+}
+
+pub fn level_order_for_list(nodes: Vec<Option<Rc<RefCell<TreeNode>>>>) -> Vec<Vec<i32>> {
+    let mut values: Vec<i32> = Vec::new();
+    let mut next_level: Vec<Option<Rc<RefCell<TreeNode>>>> = Vec::new();
+    for node in nodes {
+        match node {
+            None => continue,
+            Some(node) => {
+                let node_ptr = node.borrow();
+                values.push(node_ptr.val);
+                next_level.push(node_ptr.left.clone());
+                next_level.push(node_ptr.right.clone());
+            }
+        }
+    }
+    if values.is_empty() {
+        return vec![];
+    }
+    let mut result = vec![values];
+    if next_level.is_empty() {
+        return result;
+    }
+    let next_level_answer = level_order_for_list(next_level);
+    if next_level_answer.is_empty() {
+        return result;
+    }
+    result.extend(next_level_answer);
+    return result;
+}
 
 #[cfg(test)]
 mod tests {
