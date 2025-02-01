@@ -26,3 +26,13 @@ pub fn max_profit(prices: Vec<i32>) -> i32 {
     }
     return profit;
 }
+
+pub fn rotate(nums: &mut Vec<i32>, k: i32) {
+    let mut helper = nums.clone();
+    let n = nums.len() as i32;
+    let k = k % n;
+    for i in 0..nums.len() {
+        let shifted_index = (n + i as i32 - k) % n;
+        nums[i] = helper[shifted_index as usize];
+    }
+}
