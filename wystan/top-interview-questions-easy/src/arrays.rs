@@ -132,7 +132,7 @@ pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
     vec![0, 0]
 }
 
-pub fn rotate(matrix: &mut Vec<Vec<i32>>) {
+pub fn rotate_image(matrix: &mut Vec<Vec<i32>>) {
     let n = matrix.len();
     for i in 0..n / 2 {
         for j in i..n - i - 1 {
