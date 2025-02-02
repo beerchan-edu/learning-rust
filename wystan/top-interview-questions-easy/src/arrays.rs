@@ -98,3 +98,17 @@ pub fn plus_one(digits: Vec<i32>) -> Vec<i32> {
     result.insert(0, 1);
     return result;
 }
+
+pub fn move_zeroes(nums: &mut Vec<i32>) {
+    let mut pointer = 0;
+    let n = nums.len();
+    for i in 0..n {
+        if nums[i] != 0 {
+            nums[pointer] = nums[i];
+            pointer += 1;
+        }
+    }
+    for i in pointer..nums.len() {
+        nums[i] = 0;
+    }
+}
