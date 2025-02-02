@@ -84,3 +84,17 @@ pub fn to_hash_map(nums: &Vec<i32>) -> HashMap<i32, i32> {
     }
     result
 }
+
+pub fn plus_one(digits: Vec<i32>) -> Vec<i32> {
+    let mut result = digits.clone();
+    for (i, elem) in digits.iter().enumerate().rev() {
+        if *elem == 9 {
+            result[i] = 0;
+            continue;
+        }
+        result[i] += 1;
+        return result;
+    }
+    result.insert(0, 1);
+    return result;
+}
