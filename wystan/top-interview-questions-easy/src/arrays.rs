@@ -112,3 +112,22 @@ pub fn move_zeroes(nums: &mut Vec<i32>) {
         nums[i] = 0;
     }
 }
+
+pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
+    let mut hashmap: HashMap<i32, usize> = HashMap::new();
+    for (i, &elem) in nums.iter().enumerate() {
+        hashmap.insert(elem, i);
+    }
+    for (i, &elem) in nums.iter().enumerate() {
+        match hashmap.get(&(target - elem)) {
+            None => continue,
+            Some(&j) => {
+                if i == j {
+                    continue;
+                }
+                return vec![i as i32, j as i32];
+            }
+        }
+    }
+    vec![0, 0]
+}
