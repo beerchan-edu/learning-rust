@@ -57,3 +57,30 @@ pub fn single_number(nums: Vec<i32>) -> i32 {
     }
     return result;
 }
+
+pub fn intersect(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
+    let nums_map_1 = to_hash_map(&nums1);
+    let nums_map_2 = to_hash_map(&nums2);
+    let mut result: Vec<i32> = Vec::new();
+    for (k, v1) in nums_map_1.iter() {
+        match nums_map_2.get(k) {
+            None => continue,
+            Some(v2) => {
+                let n = std::cmp::min(v1, v2);
+                for i in 0..(*n) {
+                    result.push(*k);
+                }
+            }
+        }
+    }
+    return result;
+}
+
+pub fn to_hash_map(nums: &Vec<i32>) -> HashMap<i32, i32> {
+    let mut result: HashMap<i32, i32> = HashMap::new();
+    for i in nums {
+        let count = result.entry(*i).or_insert(0);
+        *count += 1;
+    }
+    result
+}
