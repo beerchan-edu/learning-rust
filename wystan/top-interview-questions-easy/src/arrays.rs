@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
     if nums.len() == 0 {
         return 0;
@@ -35,4 +37,15 @@ pub fn rotate(nums: &mut Vec<i32>, k: i32) {
         let shifted_index = (n + i as i32 - k) % n;
         nums[i] = helper[shifted_index as usize];
     }
+}
+
+pub fn contains_duplicate(nums: Vec<i32>) -> bool {
+    let mut hashmap: HashMap<i32, bool> = HashMap::new();
+    for i in nums {
+        if hashmap.contains_key(&i) {
+            return true;
+        }
+        hashmap.insert(i, true);
+    }
+    return false;
 }
