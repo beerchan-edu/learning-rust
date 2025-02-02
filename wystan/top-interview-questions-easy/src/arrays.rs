@@ -49,3 +49,11 @@ pub fn contains_duplicate(nums: Vec<i32>) -> bool {
     }
     return false;
 }
+
+pub fn single_number(nums: Vec<i32>) -> i32 {
+    let mut result = 0;
+    for i in nums {
+        result = result ^ i;
+    }
+    return result;
+}
