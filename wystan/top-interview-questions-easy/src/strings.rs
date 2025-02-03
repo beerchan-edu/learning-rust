@@ -38,3 +38,32 @@ pub fn reverse(x: i32) -> i32 {
     }
     result
 }
+
+pub fn first_uniq_char(s: String) -> i32 {
+    let alphabet_len: i32 = 'z' as i32 - 'a' as i32 + 1;
+    let mut letters = vec![-1; alphabet_len as usize];
+    for (i, elem) in s.char_indices() {
+        let position: usize = elem as usize - 'a' as usize;
+        if letters[position] == -1 {
+            letters[position] = i as i32;
+        } else if letters[position] >= 0 {
+            letters[position] = -2;
+        }
+    }
+    print!("{:?}", letters);
+    if let Some(&min_non_negative_index) = letters.iter().filter(|&&x| x >= 0).min() {
+        return min_non_negative_index;
+    }
+    return -1;
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn first_uniq_char_test() {
+        let result = first_uniq_char(String::from("loveleetcode"));
+        assert_eq!(result, 2);
+    }
+}
