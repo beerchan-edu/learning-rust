@@ -57,6 +57,24 @@ pub fn first_uniq_char(s: String) -> i32 {
     return -1;
 }
 
+pub fn is_anagram(s: String, t: String) -> bool {
+    if s.len() != t.len() {
+        return false;
+    }
+    let mut i = 0;
+    let mut s1: Vec<char> = s.chars().collect();
+    let mut s2: Vec<char> = t.chars().collect();
+    s1.sort();
+    s2.sort();
+    while i < s.len() {
+        if s1[i] != s2[i] {
+            return false;
+        }
+        i += 1;
+    }
+    return true;
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
