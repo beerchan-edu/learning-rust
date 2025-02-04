@@ -185,13 +185,34 @@ pub fn my_atoi(s: String) -> i32 {
     result
 }
 
+pub fn str_str(haystack: String, needle: String) -> i32 {
+    if needle.len() > haystack.len() {
+        return -1;
+    }
+    if needle.len() == 0 {
+        return 0;
+    }
+
+    let needle: Vec<char> = needle.chars().collect();
+    let haystack: Vec<char> = haystack.chars().collect();
+    'outer: for i in 0..(haystack.len() - needle.len() + 1) {
+        for j in 0..needle.len() {
+            if haystack[i + j] != needle[j] {
+                continue 'outer;
+            }
+            println!("{} == {}", haystack[i + j], needle[j]);
+        }
+        return i as i32;
+    }
+    return -1;
+}
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
     fn my_atoi_test() {
-        let result = my_atoi(String::from("1"));
-        assert_eq!(result, 1);
+        let result = str_str(String::from("leetcode"), String::from("leeto"));
+        assert_eq!(result, -1);
     }
 }
