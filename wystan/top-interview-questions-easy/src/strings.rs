@@ -96,13 +96,102 @@ pub fn is_palindrome(s: String) -> bool {
     }
     true
 }
+
+pub fn my_atoi(s: String) -> i32 {
+    if s.len() == 0 {
+        return 0;
+    }
+    let s: Vec<char> = s.chars().collect();
+    let mut i: usize = 0;
+    // 1. Whitespace: Ignore any leading whitespace
+    while i < s.len() {
+        if s[i] == ' ' {
+            i += 1;
+            continue;
+        }
+        break;
+    }
+    if i == s.len() {
+        return 0;
+    }
+    // 2 Signedness: Determine the sign by checking if the next character is '-' or '+', assuming positivity if neither present.
+    let mut is_positive = true;
+    if s[i] == '-' {
+        is_positive = false;
+        i += 1;
+    } else if s[i] == '+' {
+        i += 1;
+    }
+    if i == s.len() {
+        return 0;
+    }
+    // Conversion: Read the integer by skipping leading zeros
+    while i < s.len() {
+        if s[i] == '0' {
+            i += 1;
+        }
+        break;
+    }
+    if i == s.len() {
+        return 0;
+    }
+
+    let mut result: i32 = 0;
+    // first digit
+    if let Some(digit) = s[i].to_digit(10) {
+        if is_positive {
+            result = digit as i32;
+        } else {
+            result = -1 * (digit as i32);
+        }
+        i += 1;
+    } else {
+        return 0;
+    }
+
+    // remaining digits
+    println!("result {}", result);
+
+    while i < s.len() {
+        if let Some(digit) = s[i].to_digit(10) {
+            if let Some(value) = result.checked_mul(10) {
+                println!("{} {}", digit, value);
+                let value_to_add = if is_positive {
+                    digit as i32
+                } else {
+                    -1 * (digit as i32)
+                };
+                if let Some(new_result) = value.checked_add(value_to_add) {
+                    println!("{} {} {}", digit, value, new_result);
+                    result = new_result;
+                    i += 1;
+                } else {
+                    if result > 0 {
+                        return i32::MAX;
+                    }
+                    return i32::MIN;
+                }
+            } else {
+                if result > 0 {
+                    return i32::MAX;
+                }
+                return i32::MIN;
+            }
+        } else {
+            return result;
+        }
+    }
+
+    result
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
-    fn first_uniq_char_test() {
-        let result = first_uniq_char(String::from("loveleetcode"));
-        assert_eq!(result, 2);
+    fn my_atoi_test() {
+        let result = my_atoi(String::from("1"));
+        assert_eq!(result, 1);
     }
 }
