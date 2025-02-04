@@ -75,6 +75,27 @@ pub fn is_anagram(s: String, t: String) -> bool {
     return true;
 }
 
+pub fn is_palindrome(s: String) -> bool {
+    let s: Vec<char> = s
+        .to_ascii_lowercase()
+        .chars()
+        .filter(|c| c.is_alphanumeric())
+        .collect();
+    let mut i = 0;
+    let mut j = s.len() - 1;
+    if s.len() == 0 {
+        return true;
+    }
+
+    while j > i {
+        if s[i] != s[j] {
+            return false;
+        }
+        i += 1;
+        j -= 1;
+    }
+    true
+}
 #[cfg(test)]
 mod tests {
     use super::*;
