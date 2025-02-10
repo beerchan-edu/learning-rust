@@ -1,7 +1,7 @@
 use std::io;
 
-fn main() {
-    println!("Please input your guess.");
+pub fn generate_fibonacci() {
+    println!("Enter a number to calculate its Fibonacci value:");
 
     let mut n = String::new();
 
@@ -18,10 +18,10 @@ fn main() {
 
 fn fibonacci_number(n: u32) -> u32 {
     if n == 0 {
-        return 0;
+        return 0
     }
     if n == 1 {
-        return 1;
+        return 1
     }
 
     let mut current = 1;

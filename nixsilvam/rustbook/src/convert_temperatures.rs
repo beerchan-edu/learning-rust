@@ -1,4 +1,4 @@
-fn main() {
+pub fn convert_temperatures() {
     let celsius_result = fahrenheit_to_celsius(25.0);
 
     println!("{celsius_result:.2}");

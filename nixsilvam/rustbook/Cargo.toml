@@ -1,5 +1,5 @@
 [package]
-name = "convert_temperatures"
+name = "rustbook"
 version = "0.1.0"
 edition = "2021"
 
