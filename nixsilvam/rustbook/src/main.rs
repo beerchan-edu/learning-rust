@@ -1,6 +1,8 @@
 mod christmas_song;
 mod convert_temperatures;
 mod generate_fibonacci;
+mod chap4;
+
 
 use std::env;
 
@@ -17,6 +19,7 @@ fn main() {
         "christ" => christmas_song::christmas(),
         "temp" => convert_temperatures::convert_temperatures(),
         "fib" => generate_fibonacci::generate_fibonacci(),
+        "4" => chap4::word_counter(),
         _ => println!("Unknown task: {}", args[1]),
     }
 }
