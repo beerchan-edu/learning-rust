@@ -2,6 +2,9 @@ mod christmas_song;
 mod convert_temperatures;
 mod generate_fibonacci;
 mod chap4;
+mod rectangles_structs;
+mod rectangles_methods;
+mod coordinate_system;
 
 
 use std::env;
@@ -19,7 +22,10 @@ fn main() {
         "christ" => christmas_song::christmas(),
         "temp" => convert_temperatures::convert_temperatures(),
         "fib" => generate_fibonacci::generate_fibonacci(),
-        "4" => chap4::word_counter(),
+        "chap4" => chap4::word_counter(),
+        "rectstr" => rectangles_structs::rectangles(),
+        "rectmthd" => rectangles_methods::rectangles(),
+        "coord" => coordinate_system::coordinate_system(),
         _ => println!("Unknown task: {}", args[1]),
     }
 }
