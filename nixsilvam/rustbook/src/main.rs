@@ -5,6 +5,7 @@ mod chap4;
 mod rectangles_structs;
 mod rectangles_methods;
 mod coordinate_system;
+mod rune_system;
 
 
 use std::env;
@@ -26,6 +27,7 @@ fn main() {
         "rectstr" => rectangles_structs::rectangles(),
         "rectmthd" => rectangles_methods::rectangles(),
         "coord" => coordinate_system::coordinate_system(),
+        "rune" => rune_system::mystic_rune_system(),
         _ => println!("Unknown task: {}", args[1]),
     }
 }
