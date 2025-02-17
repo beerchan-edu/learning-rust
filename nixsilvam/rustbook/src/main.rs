@@ -6,6 +6,7 @@ mod rectangles_structs;
 mod rectangles_methods;
 mod coordinate_system;
 mod rune_system;
+mod median_and_mode;
 
 
 use std::env;
@@ -28,6 +29,7 @@ fn main() {
         "rectmthd" => rectangles_methods::rectangles(),
         "coord" => coordinate_system::coordinate_system(),
         "rune" => rune_system::mystic_rune_system(),
+        "median" => median_and_mode::median_and_mode(),
         _ => println!("Unknown task: {}", args[1]),
     }
 }
