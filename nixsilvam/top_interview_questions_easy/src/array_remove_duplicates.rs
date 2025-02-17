@@ -9,6 +9,9 @@ pub fn solution_remove_duplicates() {
 
 
 fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
+    if nums.len() == 0 {
+        return 0;
+    }
     let mut i = 1;
     while i < nums.len() {
         if nums[i] == nums[i - 1] {
