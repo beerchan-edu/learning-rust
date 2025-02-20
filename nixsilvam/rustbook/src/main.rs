@@ -7,6 +7,7 @@ mod rectangles_methods;
 mod coordinate_system;
 mod rune_system;
 mod median_and_mode;
+mod pig_latin;
 
 
 use std::env;
@@ -30,6 +31,7 @@ fn main() {
         "coord" => coordinate_system::coordinate_system(),
         "rune" => rune_system::mystic_rune_system(),
         "median" => median_and_mode::median_and_mode(),
+        "pig" => pig_latin::pig_latin(),
         _ => println!("Unknown task: {}", args[1]),
     }
 }
