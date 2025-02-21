@@ -8,6 +8,7 @@ mod coordinate_system;
 mod rune_system;
 mod median_and_mode;
 mod pig_latin;
+mod employee_directory;
 
 
 use std::env;
@@ -32,6 +33,7 @@ fn main() {
         "rune" => rune_system::mystic_rune_system(),
         "median" => median_and_mode::median_and_mode(),
         "pig" => pig_latin::pig_latin(),
+        "empl" => employee_directory::employee_directory(),
         _ => println!("Unknown task: {}", args[1]),
     }
 }
