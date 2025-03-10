@@ -34,7 +34,7 @@ fn main() {
         "median" => median_and_mode::median_and_mode(),
         "pig" => pig_latin::pig_latin(),
         "empl" => employee_directory::employee_directory(),
-        _ => println!("Unknown task: {}", args[1]),
+        
     }
 }
 
