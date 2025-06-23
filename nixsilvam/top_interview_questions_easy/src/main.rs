@@ -1,7 +1,6 @@
-mod array_remove_duplicates;
-mod best_profit;
+mod arrays;
 
-use std::env;
+use std::{env};
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -13,8 +12,9 @@ fn main() {
     }
 
     match args[1].as_str() {
-        "remove_duplicates" => array_remove_duplicates::solution_remove_duplicates(),
-        "best_profit" => best_profit::best_profit(),
+        "remove_duplicates" => arrays::array_remove_duplicates::solution_remove_duplicates(),
+        "best_profit" => arrays::best_profit::best_profit(),
+        "rotate" => arrays::rotate_array::solution_rotate(),
         _ => println!("Unknown task: {}", args[1]),
 
     }
