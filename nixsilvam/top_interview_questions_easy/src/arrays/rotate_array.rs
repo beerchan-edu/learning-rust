@@ -18,15 +18,19 @@ fn rotate_1(nums: &mut Vec<i32>, k: u32) -> &mut Vec<i32> {
         let last_element = nums.pop();
         match last_element {
             Some(i) => nums.insert(0, i),
-            _ => print!("There are no elements in vector")
+            _ => print!("There are no elements in vector"),
         }
-        step += 1
+        step += 1;
     }
     nums
 }
 
-fn rotate_2(nums: &mut Vec<i32>, k: u32) -> &mut Vec<i32> {
-    let steps: usize = k as usize;
+fn rotate_2(nums: &mut Vec<i32>, k: u32) -> &mut Vec<i32>{ 
+    let len = nums.len();
+    if len == 0 {
+        ();
+    }
+    let steps: usize = k as usize % len;
     nums.rotate_right(steps);
     nums
 }
