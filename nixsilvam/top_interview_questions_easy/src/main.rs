@@ -15,6 +15,7 @@ fn main() {
         "remove_duplicates" => arrays::array_remove_duplicates::solution_remove_duplicates(),
         "best_profit" => arrays::best_profit::best_profit(),
         "rotate" => arrays::rotate_array::solution_rotate(),
+        "contains_duplicates" => arrays::contains_duplicates::solution_contains_duplicates(),
         _ => println!("Unknown task: {}", args[1]),
 
     }
