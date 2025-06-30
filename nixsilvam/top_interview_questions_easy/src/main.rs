@@ -16,6 +16,7 @@ fn main() {
         "best_profit" => arrays::best_profit::best_profit(),
         "rotate" => arrays::rotate_array::solution_rotate(),
         "contains_duplicates" => arrays::contains_duplicates::solution_contains_duplicates(),
+        "single_numbers" => arrays::single_numbers::solution_single_numbers(),
         _ => println!("Unknown task: {}", args[1]),
 
     }
