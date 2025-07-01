@@ -17,6 +17,7 @@ fn main() {
         "rotate" => arrays::rotate_array::solution_rotate(),
         "contains_duplicates" => arrays::contains_duplicates::solution_contains_duplicates(),
         "single_numbers" => arrays::single_numbers::solution_single_numbers(),
+        "intersection" => arrays::intersection_arrays::solution_intersection(),
         _ => println!("Unknown task: {}", args[1]),
 
     }
