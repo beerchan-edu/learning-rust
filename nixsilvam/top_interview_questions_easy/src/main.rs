@@ -18,7 +18,9 @@ fn main() {
         "contains_duplicates" => arrays::contains_duplicates::solution_contains_duplicates(),
         "single_numbers" => arrays::single_numbers::solution_single_numbers(),
         "intersection" => arrays::intersection_arrays::solution_intersection(),
+        "plus_one" => arrays::plus_one::solution_plus_one(),
         _ => println!("Unknown task: {}", args[1]),
 
     }
 }
+
