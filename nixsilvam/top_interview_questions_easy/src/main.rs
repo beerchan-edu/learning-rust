@@ -19,6 +19,7 @@ fn main() {
         "single_numbers" => arrays::single_numbers::solution_single_numbers(),
         "intersection" => arrays::intersection_arrays::solution_intersection(),
         "plus_one" => arrays::plus_one::solution_plus_one(),
+        "move_zeroes" => arrays::move_zeroes::solution_move_zeroes(),
         _ => println!("Unknown task: {}", args[1]),
 
     }

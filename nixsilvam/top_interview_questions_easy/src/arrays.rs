@@ -5,3 +5,4 @@ pub mod contains_duplicates;
 pub mod single_numbers;
 pub mod intersection_arrays;
 pub mod plus_one;
+pub mod move_zeroes;
