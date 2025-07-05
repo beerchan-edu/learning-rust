@@ -20,6 +20,7 @@ fn main() {
         "intersection" => arrays::intersection_arrays::solution_intersection(),
         "plus_one" => arrays::plus_one::solution_plus_one(),
         "move_zeroes" => arrays::move_zeroes::solution_move_zeroes(),
+        "two_sums" => arrays::two_sums::solution_two_sums(),
         _ => println!("Unknown task: {}", args[1]),
 
     }
