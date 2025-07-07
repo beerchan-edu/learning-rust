@@ -10,9 +10,20 @@ pub fn solution_two_sums() {
     let nums3 = vec![3,3];
     let target3 = 6;
 
+    let nums4= vec![2,7,11,15];
+    let target4 = 9;
+    let nums5 = vec![3,2,4];
+    let target5 =6;
+    let nums6 = vec![3,3];
+    let target6 = 6;
+
     println!("{:?}", two_sums_bruteforce(nums1, target1));
     println!("{:?}", two_sums_bruteforce(nums2, target2));
     println!("{:?}", two_sums_bruteforce(nums3, target3));
+
+    println!("{:?}", two_sums_hashmap(nums4, target4));
+    println!("{:?}", two_sums_hashmap(nums5, target5));
+    println!("{:?}", two_sums_hashmap(nums6, target6));
 }
 
 fn two_sums_bruteforce(nums: Vec<i32>, target: i32) -> Vec<i32> {
