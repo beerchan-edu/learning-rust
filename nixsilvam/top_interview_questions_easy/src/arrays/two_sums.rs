@@ -1,5 +1,7 @@
 // https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/546/
 
+use std::collections::HashMap;
+
 pub fn solution_two_sums() {
     let nums1= vec![2,7,11,15];
     let target1 = 9;
@@ -24,4 +26,15 @@ fn two_sums_bruteforce(nums: Vec<i32>, target: i32) -> Vec<i32> {
     return vec![] // this won't ever be reached due to the problem constraints
 }
 
-//hashmap
+fn two_sums_hashmap(nums: Vec<i32>, target: i32) -> Vec<i32> {
+    let mut map: HashMap<i32, usize> = HashMap::new();
+    
+    for (i, num) in nums.iter().enumerate() {
+        let complement = target - num;
+        if let Some(&j) = map.get(&complement) {
+            return vec![j as i32, i as i32]
+        }
+        map.insert(*num, i);
+    }
+    return vec![] // this won't ever be reached due to the problem constraints
+}
