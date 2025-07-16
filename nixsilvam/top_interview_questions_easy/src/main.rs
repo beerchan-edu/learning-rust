@@ -22,6 +22,7 @@ fn main() {
         "move_zeroes" => arrays::move_zeroes::solution_move_zeroes(),
         "two_sums" => arrays::two_sums::solution_two_sums(),
         "sudoku" => arrays::sudoku::valid_sudoku(),
+        "image" => arrays::rotate_image::Solution::rotate_image_solution(),
         _ => println!("Unknown task: {}", args[1]),
 
     }

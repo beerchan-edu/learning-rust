@@ -8,3 +8,4 @@ pub mod plus_one;
 pub mod move_zeroes;
 pub mod two_sums;
 pub mod sudoku;
+pub mod rotate_image;
