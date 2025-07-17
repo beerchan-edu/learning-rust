@@ -11,7 +11,7 @@ impl Solution {
         Solution::reverse_string(&mut s2);
 
         println!("{:?}", s1);
-        println!("{:?}", s1);
+        println!("{:?}", s2);
     }
 
     fn reverse_string(s: &mut Vec<char>) {
