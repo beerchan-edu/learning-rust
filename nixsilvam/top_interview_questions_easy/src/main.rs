@@ -12,17 +12,17 @@ fn main() {
     }
 
     match args[1].as_str() {
-        "remove_duplicates" => arrays::array_remove_duplicates::solution_remove_duplicates(),
-        "best_profit" => arrays::best_profit::best_profit(),
-        "rotate" => arrays::rotate_array::solution_rotate(),
-        "contains_duplicates" => arrays::contains_duplicates::solution_contains_duplicates(),
-        "single_numbers" => arrays::single_numbers::solution_single_numbers(),
-        "intersection" => arrays::intersection_arrays::solution_intersection(),
-        "plus_one" => arrays::plus_one::solution_plus_one(),
-        "move_zeroes" => arrays::move_zeroes::solution_move_zeroes(),
-        "two_sums" => arrays::two_sums::solution_two_sums(),
-        "sudoku" => arrays::sudoku::valid_sudoku(),
-        "image" => arrays::rotate_image::Solution::rotate_image_solution(),
+        "727" => arrays::remove_duplicates_from_sorted_array::solution_remove_duplicates(),
+        "564" => arrays::best_time_to_buy_and_sell_stock_II::best_profit(),
+        "646" => arrays::rotate_array::solution_rotate(),
+        "578" => arrays::contains_duplicate::solution_contains_duplicates(),
+        "549" => arrays::single_number::solution_single_numbers(),
+        "674" => arrays::intersection_of_two_arrays_II::solution_intersection(),
+        "559" => arrays::plus_one::solution_plus_one(),
+        "567" => arrays::move_zeroes::solution_move_zeroes(),
+        "546" => arrays::two_sum::solution_two_sums(),
+        "769" => arrays::valid_sudoku::valid_sudoku(),
+        "770" => arrays::rotate_image::Solution::rotate_image_solution(),
         _ => println!("Unknown task: {}", args[1]),
 
     }
