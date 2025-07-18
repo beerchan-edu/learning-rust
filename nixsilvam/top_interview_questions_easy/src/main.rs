@@ -25,6 +25,7 @@ fn main() {
         "769" => arrays::valid_sudoku::valid_sudoku(),
         "770" => arrays::rotate_image::Solution::rotate_image_solution(),
         "879" => strings::reverse_string::Solution::reverse_string_solution(),
+        "880" => strings::reverse_integer::Solution::reverse_integer_solution(),
         _ => println!("Unknown task: {}", args[1]),
 
     }
