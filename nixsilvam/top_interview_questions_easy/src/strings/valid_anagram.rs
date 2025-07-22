@@ -19,6 +19,7 @@ impl Solution {
         println!("{}", is_anagram2);
     }
 
+    #[allow(dead_code)]
     fn is_anagram_sort(s: String, t: String) -> bool {
         let mut svec: Vec<char> = s.chars().collect();
         let mut tvec: Vec<char> = t.chars().collect();
