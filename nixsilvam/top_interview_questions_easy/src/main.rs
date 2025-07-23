@@ -29,6 +29,7 @@ fn main() {
         "881" => strings::first_unique_character_in_a_string::Solution::first_uniq_char_solution(),
         "882" => strings::valid_anagram::Solution::anagram(),
         "883" => strings::valid_palindrome::Solution::palindrome(),
+        "884" => strings::string_to_integer_atoi::Solution::my_atoi_solution(),
         _ => println!("Unknown task: {}", args[1]),
 
     }
