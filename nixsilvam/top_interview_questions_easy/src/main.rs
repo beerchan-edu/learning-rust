@@ -30,6 +30,7 @@ fn main() {
         "882" => strings::valid_anagram::Solution::anagram(),
         "883" => strings::valid_palindrome::Solution::palindrome(),
         "884" => strings::string_to_integer_atoi::Solution::my_atoi_solution(),
+        "885" => strings::implement_str_str::Solution::str_solution(),
         _ => println!("Unknown task: {}", args[1]),
 
     }
