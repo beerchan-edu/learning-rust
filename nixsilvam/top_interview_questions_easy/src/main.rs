@@ -31,6 +31,7 @@ fn main() {
         "883" => strings::valid_palindrome::Solution::palindrome(),
         "884" => strings::string_to_integer_atoi::Solution::my_atoi_solution(),
         "885" => strings::implement_str_str::Solution::str_solution(),
+        "887" => strings::longest_common_prefix::Solution::longest_common_prefix_solution(),
         _ => println!("Unknown task: {}", args[1]),
 
     }
